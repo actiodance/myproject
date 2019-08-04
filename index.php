@@ -49,11 +49,10 @@ $users = $statement->fetchALL(PDO::FETCH_ASSOC);
                     <td><?= $user['email'];?></td>
                     <td><?= $user['password'];?></td>
                   <td>
-                      <a href="#" class="btn btn-warning">
-                      Edit
-                      </a>
-                      <a href="#" class="btn btn-danger">Delete</a>
-                    </td>
+                      <a href="show.php?id=<?= $user['id'];?>" class="btn btn-info">Show</a>
+                      <a href="edit.php?id=<?= $user['id'];?>" class="btn btn-warning">Edit</a>
+                      <a href="delete.php?id=<?= $user['id'];?>" class="btn btn-danger">Delete</a>
+                  </td>
                   </tr>
                 <?php endforeach; ?>
 
