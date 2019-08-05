@@ -51,7 +51,7 @@ $users = $statement->fetchALL(PDO::FETCH_ASSOC);
                   <td>
                       <a href="show.php?id=<?= $user['id'];?>" class="btn btn-info">Show</a>
                       <a href="edit.php?id=<?= $user['id'];?>" class="btn btn-warning">Edit</a>
-                      <a href="delete.php?id=<?= $user['id'];?>" class="btn btn-danger">Delete</a>
+                      <a onclick="return confirm('are you sure?');" href="delete.php?id=<?= $user['id'];?>" class="btn btn-danger">Delete</a>
                   </td>
                   </tr>
                 <?php endforeach; ?>
