@@ -16,12 +16,9 @@ $users = $db->all("users");
   
 $auth = new Auth($db);
 //$auth->register('125@ya.ru', '789');
-$auth->login('125@ya.ru', '789');
-//$user = $auth->currentUser();
+$auth->login($email, $password);
+$user = $auth->currentUser();
 
-// 1.переделываем таблицу под юзеров+
-// 2.меняем форму на форму регистрации
-// 3.проверяем результат
 
 ?>
 
