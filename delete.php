@@ -1,10 +1,14 @@
 <?php
-$id = $_GET['id'];
-$sql = 'DELETE FROM users WHERE id=:id';
-$pdo = new PDO("mysql:host=127.0.0.1; dbname=myproject", "root", "");
-$statement = $pdo->prepare($sql);
-$statement->bindParam(":id", $id);
-$statement->execute();
 
-header('Location: /');
+require 'database/QueryBuilder.php';
+
+$db = new QueryBuilder;
+
+$id = $_GET['id'];
+
+//$db->deleteTask($id);
+$db->delete("users", $id);
+
+header("Location: /");
+
 ?>

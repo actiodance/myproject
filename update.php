@@ -1,15 +1,19 @@
 <?php
+//обновляет edit
+
+require 'database/QueryBuilder.php';
+
+$db = new QueryBuilder;
 
 $data = [
-    "id" => $_GET['id'],
-    "name" => $_POST['name'],
-    "email" => $_POST['email'],
-    "password" => $_POST['password']
+	"id" => $_GET['id'],
+	"email" => $_POST['email'],
+	"password" => $_POST['password']
 ];
-$pdo = new PDO("mysql:host=127.0.0.1; dbname=myproject", "root", "");
-$sql = 'UPDATE users SET name=:name, email=:email, password=:password WHERE id=:id';
-$statement = $pdo->prepare($sql);
-$statement->execute($data);
+
+//$updateTask($data);
+$db->update("users", $data);
 
 header("Location: /"); exit;
+
 ?>

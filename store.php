@@ -1,14 +1,17 @@
 <?php
+//сохраняет create
 
-$pdo = new PDO("mysql:host=127.0.0.1; dbname=myproject", "root", "");
-$sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
-$statement = $pdo->prepare($sql);
-$statement->bindParam(":name", $_POST['name']);
-$statement->bindParam(":email", $_POST['email']);
-$statement->bindParam(":password", $_POST['password']);
-$statement->execute();
+require 'database/QueryBuilder.php';
 
+$db = new QueryBuilder;
 
-//переадресуем пользователя
+$data = [
+	"email" => $_POST['email'],
+	"password" => $_POST['password']
+];
+
+//$db->addTask($data);
+$db->store("users", $data);
+
 header("Location: /"); exit;
 ?>
